@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Installation/update (one-liner):
+# curl -s https://raw.githubusercontent.com/rbobillot/git_prompt_show_branch/main/install.bash | bash
+
 export SHOW_BRANCH=yes
 
 function git_working_status {
