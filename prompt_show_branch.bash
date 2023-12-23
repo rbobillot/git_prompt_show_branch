@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO:  UPDATE PROMPT WITH LAST VERSION
-
 export SHOW_BRANCH=yes
 
 function git_working_status {
