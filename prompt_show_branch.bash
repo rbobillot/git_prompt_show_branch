@@ -14,8 +14,8 @@ function git_working_status {
 		current_diff=$(LANG=en_US.UTF-8 LANGUAGE=en_US:en git diff origin/$current_branch 2>&1)
 		color="\001\033[92m\002"
 
-		local_diff_msg="fatal: ambiguous argument 'origin/$current_branch'"
-		if [[ $current_diff =~ $local_diff_msg ]]; then local="\001\033[96m\002local\001\033[0m\002/"; fi
+		local_diff_msg="fatal: ambiguous argument 'origin/"
+		if [[ ! -z `echo $current_diff | head -1 | egrep "^$local_diff_msg"` ]]; then local="\001\033[96m\002local\001\033[0m\002/"; fi
 
 		if   [[ -n $current_unt_status ]]; then color="\001\033[31m\002"                    # repository modif:   [branch name in RED]
 		elif [[ -n $current_add_status ]]; then color="\001\033[33m\002"                    # files added to git: [branch name in YELLOW]
